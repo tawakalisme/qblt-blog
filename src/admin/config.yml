@@ -12,16 +12,24 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+<<<<<<< HEAD
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Excerpt", name: "excerpt", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "date"}
       - {label: "Body", name: "body", widget: "markdown"}
+=======
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "date" }
+      - { label: "Body", name: "body", widget: "markdown" }
+>>>>>>> 0409ee7dc84228f98adb40227d0c2d451373b8eb
   - name: "portfolios"
     label: "Portfolios"
     folder: "portfolios"
     create: true
     slug: "{{slug}}"
     fields:
+<<<<<<< HEAD
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Excerpt", name: "excerpt", widget: "string"}
       - {label: "Dribbble", name: "dribbble-link", widget: "string"}
@@ -31,3 +39,14 @@ collections:
       - {label: "Publish Date", name: "date", widget: "date"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Images", name: "images", widget: "markdown"}
+=======
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "date" }
+      - { label: "Font", name: "font", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Platform", name: "platform", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Cover", name: "cover", widget: "markdown" }
+      - { label: "Images", name: "images", widget: "markdown" }
+>>>>>>> 0409ee7dc84228f98adb40227d0c2d451373b8eb
