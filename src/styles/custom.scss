@@ -1,0 +1,118 @@
+h1 {
+  @extend .title, .is-1;
+}
+h2 {
+  @extend .title, .is-2;
+}
+h3 {
+  @extend .title, .is-3;
+}
+h4 {
+  @extend .title, .is-4;
+}
+h5 {
+  @extend .title, .is-5;
+}
+h6 {
+  @extend .title, .is-6;
+}
+table {
+  @extend .table;
+}
+blockquote {
+  @extend .message, .message-body;
+  font-family: "Merriweather", serif;
+}
+
+ul > li,
+ol > li {
+  margin-left: 1rem;
+}
+
+.navbar {
+  &-menu {
+    a.navbar-item {
+      transition: all 0.2s ease;
+    }
+    a.navbar-item:hover {
+      transform: translateY(-4px);
+      text-shadow: 0 2px 16px rgba($primary, 0.5);
+    }
+  }
+}
+
+img.max-height {
+  height: 100%;
+  width: 100%;
+  max-height: 40vh;
+  object-fit: cover;
+}
+
+.post-props {
+  p {
+    margin-bottom: 1rem;
+    a {
+      transition: all 0.2s ease-in-out;
+    }
+    a:hover {
+      text-shadow: 0 2px 16px $primary;
+    }
+  }
+}
+
+.card {
+  transition: all 0.25s ease;
+  .card-content {
+    .title {
+      display: block;
+      /* Fallback for non-webkit */
+      display: -webkit-box;
+      /* Fallback for non-webkit */
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.card:hover {
+  box-shadow: 0 8px 16px rgba($primary, 0.5);
+  background-color: $primary;
+  color: $white;
+  transform: translateY(-4px);
+  h1,
+  p {
+    color: $white;
+  }
+}
+
+a,
+button {
+  transition: all 0.5s ease;
+  &:hover {
+    transform: translateY(-4px);
+  }
+  &.is-primary:hover {
+    box-shadow: 0 4px 16px rgba($primary, 0.5);
+  }
+  &.is-dribbble:hover {
+    box-shadow: 0 4px 16px rgba($dribbble, 0.5);
+  }
+}
+
+.pager {
+  a.pagination-link.active {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.flex-wrapping {
+  flex-wrap: wrap;
+}
+
+.level {
+  .heading {
+    color: $grey-light;
+  }
+}

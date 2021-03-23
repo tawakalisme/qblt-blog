@@ -1,0 +1,41 @@
+<template>
+  <b-navbar
+    wrapper-class="container"
+    transparent
+    spaced
+    :class="{ 'is-primary': colorMode }"
+  >
+    <template #brand>
+      <b-navbar-item tag="g-link" to="/">
+        <Icon v-if="!colorMode" />
+        <IconInvert v-else
+      /></b-navbar-item>
+    </template>
+    <template #end>
+      <b-navbar-item to="/" tag="g-link" class="has-text-weight-semibold"
+        >Home</b-navbar-item
+      >
+      <b-navbar-item to="/posts" tag="g-link" class="has-text-weight-semibold"
+        >Blog</b-navbar-item
+      >
+      <b-navbar-item
+        to="/portfolios"
+        tag="g-link"
+        class="has-text-weight-semibold"
+        >Portfolios</b-navbar-item
+      >
+      <b-navbar-item to="#" tag="g-link" class="has-text-weight-semibold"
+        >Contact</b-navbar-item
+      >
+    </template>
+  </b-navbar>
+</template>
+
+<script>
+import Icon from "@/assets/Icon.svg";
+import IconInvert from "@/assets/Icon-invert.svg";
+export default {
+  props: ["color-mode"],
+  components: { Icon, IconInvert },
+};
+</script>

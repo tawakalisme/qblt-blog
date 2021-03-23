@@ -1,0 +1,126 @@
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.p-token.p-comment,
+.p-token.p-prolog,
+.p-token.p-doctype,
+.p-token.p-cdata {
+	color: #8292a2;
+}
+
+.p-token.p-punctuation {
+	color: #f8f8f2;
+}
+
+.p-token.p-namespace {
+	opacity: .7;
+}
+
+.p-token.p-property,
+.p-token.p-tag,
+.p-token.p-constant,
+.p-token.p-symbol,
+.p-token.p-deleted {
+	color: #f92672;
+}
+
+.p-token.p-boolean,
+.p-token.p-number {
+	color: #ae81ff;
+}
+
+.p-token.p-selector,
+.p-token.p-attr-name,
+.p-token.p-string,
+.p-token.p-char,
+.p-token.p-builtin,
+.p-token.p-inserted {
+	color: #a6e22e;
+}
+
+.p-token.p-operator,
+.p-token.p-entity,
+.p-token.p-url,
+.language-css .p-token.p-string,
+.style .p-token.p-string,
+.p-token.p-variable {
+	color: #f8f8f2;
+}
+
+.p-token.p-atrule,
+.p-token.p-attr-value,
+.p-token.p-function,
+.p-token.p-class-name {
+	color: #e6db74;
+}
+
+.p-token.p-keyword {
+	color: #66d9ef;
+}
+
+.p-token.p-regex,
+.p-token.p-important {
+	color: #fd971f;
+}
+
+.p-token.p-important,
+.p-token.p-bold {
+	font-weight: bold;
+}
+.p-token.p-italic {
+	font-style: italic;
+}
+
+.p-token.p-entity {
+	cursor: help;
+}
+
