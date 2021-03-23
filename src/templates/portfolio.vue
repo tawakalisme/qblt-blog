@@ -24,7 +24,7 @@
         ></h1>
         <p
           v-html="$page.portfolio.content"
-          class="subtitle has-text-centered is-size-6-mobile"
+          class="has-text-centered is-size-6-mobile"
         ></p>
         <div class="has-text-centered">
           <b-button
