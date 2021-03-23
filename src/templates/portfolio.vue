@@ -22,10 +22,10 @@
           v-html="$page.portfolio.title"
           class="title is-1 has-text-centered is-size-3-mobile"
         ></h1>
-        <p
+        <h5
           v-html="$page.portfolio.content"
           class="has-text-centered is-size-6-mobile"
-        ></p>
+        ></h5>
         <div class="has-text-centered">
           <b-button
             tag="a"
