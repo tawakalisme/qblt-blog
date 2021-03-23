@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: tawakalisme/qblt-blog
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "date" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "portfolios"
+    label: "Portfolios"
+    folder: "portfolios"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "date" }
+      - { label: "Font", name: "font", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Platform", name: "platform", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Cover", name: "cover", widget: "markdown" }
+      - { label: "Images", name: "images", widget: "markdown" }
