@@ -47,10 +47,27 @@ module.exports = {
         typeName: "portfolio",
       },
     },
+    {
+      use: `gridsome-plugin-netlify-cms`,
+      options: {
+        publicPath: `/admin`,
+        modulePath: `src/admin/index.js`,
+      },
+    },
   ],
   chainWebpack: (config) => {
     const svgRule = config.module.rule("svg");
     svgRule.uses.clear();
     svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+  },
+  transformers: {
+    remark: {
+      externalLinksTarget: "_blank",
+      externalLinksRel: ["nofollow", "noopener", "noreferrer"],
+      anchorClassName: "icon icon-link",
+      plugins: [
+        // ...global plugins
+      ],
+    },
   },
 };
