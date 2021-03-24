@@ -47,6 +47,14 @@ module.exports = {
         typeName: "portfolio",
       },
     },
+    {
+      use: "@gridsome/source-strapi",
+      options: {
+        apiURL: `https://qblt-admin.herokuapp.com/`,
+        queryLimit: 1000, // Defaults to 100
+        contentTypes: [`portfolios`, `posts`],
+      },
+    },
   ],
   chainWebpack: (config) => {
     const svgRule = config.module.rule("svg");
