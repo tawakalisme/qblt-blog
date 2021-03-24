@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="hero is-small">
+  <div class="hero is-small">
       <div class="hero-body">
         <div class="has-text-centered">
           <p>This site is under maintenance. Some contents might be weird.</p>
