@@ -68,6 +68,7 @@
         >
           <div class="container has-text-centered">
             <g-image :src="getStrapiMedia(image.url)" />
+
           </div>
         </div>
       </div>
