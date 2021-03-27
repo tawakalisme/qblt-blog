@@ -1,16 +1,16 @@
 <template>
   <div>
-  <div class="hero is-small">
-      <div class="hero-body">
-        <div class="has-text-centered">
-          <p>This site is under maintenance. Some contents might be weird.</p>
-        </div>
-      </div>
+    <div class="upper-layer-bg">
+      <Hero />
+      <BlogSection />
+      <PortfolioSection />
+      <Footer />
     </div>
-    <Hero />
-    <BlogSection />
-    <PortfolioSection />
-    <Footer />
+    <div class="area">
+      <ul class="circles">
+        <li v-for="i in 20" :key="i"></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -31,3 +31,4 @@ export default {
   },
 };
 </script>
+

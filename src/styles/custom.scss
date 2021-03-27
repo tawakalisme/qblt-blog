@@ -38,6 +38,11 @@ ol > li {
       transform: translateY(-4px);
       text-shadow: 0 2px 16px rgba($primary, 0.5);
     }
+    .navbar-brand {
+      a:hover {
+        transform: none;
+      }
+    }
   }
 }
 
@@ -60,7 +65,8 @@ img.max-height {
   }
 }
 
-.card {
+.card,
+.box {
   transition: all 0.25s ease;
   .card-content {
     .title {
@@ -75,7 +81,8 @@ img.max-height {
     }
   }
 }
-.card:hover {
+.card:hover,
+.box:hover {
   box-shadow: 0 8px 16px rgba($primary, 0.5);
   background-color: $primary;
   color: $white;
@@ -107,12 +114,200 @@ button {
   }
 }
 
-.flex-wrapping {
-  flex-wrap: wrap;
-}
-
 .level {
   .heading {
     color: $grey-light;
+  }
+}
+
+.tile {
+  a {
+    display: contents;
+  }
+}
+
+.footer {
+  background-color: findLightColor(rgba($primary, 0.8)) !important;
+}
+
+.content {
+  .fa-dribbble-square {
+    color: $dribbble;
+    transition: color 0.25s ease;
+  }
+  .fa-dribbble-square:hover {
+    color: findDarkColor($dribbble);
+  }
+  .fa-facebook-square {
+    color: $facebook;
+    transition: color 0.25s ease;
+  }
+  .fa-facebook-square:hover {
+    color: findDarkColor($facebook);
+  }
+  .fa-twitter-square {
+    color: $twitter;
+    transition: color 0.25s ease;
+  }
+  .fa-twitter-square:hover {
+    color: findDarkColor($twitter);
+  }
+  .fa-github-square {
+    color: $github;
+    transition: color 0.25s ease;
+  }
+  .fa-github-square:hover {
+    color: findDarkColor($github);
+  }
+  .fa-linkedin {
+    color: $linkedin;
+    transition: color 0.25s ease;
+  }
+  .fa-linkedin:hover {
+    color: findDarkColor($linkedin);
+  }
+}
+
+// Custom Background
+.upper-layer-bg {
+  width: 100%;
+  position: absolute;
+}
+
+.area {
+  z-index: -1;
+  background: #fff;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+}
+
+.circles {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  animation: animate-bg 12s ease-in infinite;
+  bottom: -150px;
+}
+
+@for $i from 1 through 100 {
+  .circles li:nth-child(#{$i}) {
+    left: (random(60) + 10) * 1%;
+    width: 5px * $i;
+    height: 5px * $i;
+    animation-delay: 1s * random(12);
+    filter: blur(2px * random());
+  }
+}
+
+// .circles li:nth-child(2) {
+//   left: 10%;
+//   width: 20px;
+//   height: 20px;
+//   animation-delay: 2s;
+//   animation-duration: 12s;
+// }
+
+// .circles li:nth-child(3) {
+//   left: 70%;
+//   width: 20px;
+//   height: 20px;
+//   animation-delay: 4s;
+// }
+
+// .circles li:nth-child(4) {
+//   left: 40%;
+//   width: 60px;
+//   height: 60px;
+//   animation-delay: 0s;
+//   animation-duration: 18s;
+// }
+
+// .circles li:nth-child(5) {
+//   left: 65%;
+//   width: 20px;
+//   height: 20px;
+//   animation-delay: 0s;
+// }
+
+// .circles li:nth-child(6) {
+//   left: 75%;
+//   width: 110px;
+//   height: 110px;
+//   animation-delay: 3s;
+// }
+
+// .circles li:nth-child(7) {
+//   left: 35%;
+//   width: 150px;
+//   height: 150px;
+//   animation-delay: 7s;
+// }
+
+// .circles li:nth-child(8) {
+//   left: 50%;
+//   width: 25px;
+//   height: 25px;
+//   animation-delay: 15s;
+//   animation-duration: 45s;
+// }
+
+// .circles li:nth-child(9) {
+//   left: 20%;
+//   width: 15px;
+//   height: 15px;
+//   animation-delay: 2s;
+//   animation-duration: 35s;
+// }
+
+// .circles li:nth-child(10) {
+//   left: 85%;
+//   width: 150px;
+//   height: 150px;
+//   animation-delay: 0s;
+//   animation-duration: 11s;
+// }
+
+@keyframes animate-bg {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    border-radius: 25%;
+    background: $dribbble;
+    border: $dribbble solid 4px;
+    opacity: 0.75;
+  }
+
+  25% {
+    background: $dribbble;
+    border: $dribbble solid 4px;
+  }
+
+  50% {
+    background: $primary;
+    border: $primary solid 4px;
+  }
+
+  65% {
+    background: $primary;
+    border: $primary solid 4px;
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-100vh * 2) rotate(720deg);
+    border-radius: 50%;
+    background: $primary;
+    border: $primary solid 4px;
+    opacity: 0;
   }
 }

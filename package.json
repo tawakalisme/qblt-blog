@@ -12,9 +12,12 @@
     "@gridsome/source-strapi": "^0.2.0",
     "@gridsome/transformer-remark": "^0.6.4",
     "buefy": "^0.9.4",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "gridsome-source-graphql": "^1.0.2",
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
+    "babel-runtime": "^6.26.0",
     "node-sass": "^5.0.0",
     "sass-loader": "10.1.1",
     "vue-svg-loader": "^0.16.0"

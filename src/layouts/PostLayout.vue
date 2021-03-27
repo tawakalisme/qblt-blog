@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <slot name="header-image" />
     <div class="row">
       <div class="column">
@@ -20,11 +19,3 @@ query {
 }
 </static-query>
 
-<script>
-import Navbar from "@/components/TheNavbar.vue";
-export default {
-  components: {
-    Navbar,
-  },
-};
-</script>

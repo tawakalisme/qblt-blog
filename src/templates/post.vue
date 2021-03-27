@@ -1,20 +1,51 @@
 <template>
   <Post>
-    <template v-slot:header-image v-if="$page.post.headerImage !== ''">
-      <div class="max-height">
-        <g-image :src="$page.post.headerImage" class="mb-6 max-height" />
+    <template v-slot:header-image>
+      <div
+        class="hero is-medium is-primary"
+        :style="{
+          background:
+            'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(' +
+            getStrapiMedia($page.strapiPost.image.url) +
+            ')',
+          'background-attachment': 'fixed',
+          'background-position': 'center',
+          'background-repeat': 'no-repeat',
+          'background-size': 'cover',
+        }"
+      >
+        <div class="hero-head">
+          <Navbar :color-mode="true" />
+        </div>
+        <div class="hero-body">
+          <h1 class="title is-1 has-text-centered is-size-3-mobile">
+            {{ $page.strapiPost.title }}
+          </h1>
+          <p class="subtitle has-text-centered is-size-6-mobile">
+            {{ $page.strapiPost.excerpt }}
+          </p>
+        </div>
       </div>
     </template>
-    <h1 class="title is-1" v-html="$page.post.title" />
-    <div class="post-props" v-html="$page.post.content" />
+    <vue-markdown :source="$page.strapiPost.article" class="content mt-6" />
   </Post>
 </template>
 
 <script>
+import { getStrapiMedia } from "~/utils/medias";
+import VueMarkdown from "vue-markdown";
+import Navbar from "@/components/TheNavbar.vue";
 export default {
+  components: {
+    VueMarkdown,
+    Navbar,
+  },
+  methods: {
+    getStrapiMedia,
+  },
   metaInfo() {
     return {
-      title: this.$page.post.title,
+      title: this.$page.strapiPost.title,
     };
   },
 };
@@ -22,14 +53,16 @@ export default {
 
 <page-query>
 query($id:ID!) {
-  post(id: $id){
+  strapiPost(id: $id){
     id
     title
-    content
-    headerImage
+    article
+    slug
+    excerpt
+    image{
+      url
+      caption
+    }
   }
 }
 </page-query>
-
-<style>
-</style>

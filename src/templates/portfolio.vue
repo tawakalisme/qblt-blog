@@ -5,9 +5,11 @@
       :style="{
         background:
           'linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.9)), url(' +
-          $page.portfolio.coverImage +
+          getStrapiMedia($page.strapiPortfolio.cover.url) +
           ')',
+        'background-attachment': 'fixed',
         'background-position': 'center',
+        'background-repeat': 'no-repeat',
         'background-size': 'cover',
       }"
     >
@@ -16,20 +18,18 @@
       </div>
       <div class="hero-body">
         <p class="is-size-7 has-text-centered uppercase mb-2">
-          {{ $page.portfolio.category }}
+          {{ $page.strapiPortfolio.category.categoryName }}
         </p>
-        <h1
-          v-html="$page.portfolio.title"
-          class="title is-1 has-text-centered is-size-3-mobile"
-        ></h1>
-        <h5
-          v-html="$page.portfolio.content"
-          class="has-text-centered is-size-6-mobile"
-        ></h5>
+        <h1 class="title is-1 has-text-centered is-size-3-mobile">
+          {{ $page.strapiPortfolio.title }}
+        </h1>
+        <p class="subtitle has-text-centered is-size-6-mobile">
+          {{ $page.strapiPortfolio.description }}
+        </p>
         <div class="has-text-centered">
           <b-button
             tag="a"
-            href="/"
+            :href="$page.strapiPortfolio.dribbble"
             icon-left="dribbble"
             icon-pack="fab"
             type="is-dribbble"
@@ -44,30 +44,30 @@
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Font Family</p>
-            <p class="title">{{ $page.portfolio.fonts }}</p>
+            <p class="title">{{ $page.strapiPortfolio.font }}</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Made By</p>
-            <p class="title">{{ $page.portfolio.tools }}</p>
+            <p class="title">{{ $page.strapiPortfolio.tools }}</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Platform</p>
-            <p class="title">{{ $page.portfolio.platform }}</p>
+            <p class="title">{{ $page.strapiPortfolio.platform }}</p>
           </div>
         </div>
       </nav>
-      <div class="tile is-ancestor flex-wrapping">
+      <div class="tile is-ancestor is-flex-wrap-wrap">
         <div
-          :key="image"
+          :key="image.id"
           class="tile is-6"
-          v-for="image in $page.portfolio.images"
+          v-for="image in $page.strapiPortfolio.images"
         >
           <div class="container has-text-centered">
-            <g-image :src="image" />
+            <g-image :src="getStrapiMedia(image.url)" />
           </div>
         </div>
       </div>
@@ -77,13 +77,17 @@
 
 <script>
 import Navbar from "@/components/TheNavbar.vue";
+import { getStrapiMedia } from "~/utils/medias";
 export default {
+  methods: {
+    getStrapiMedia,
+  },
   components: {
     Navbar,
   },
   metaInfo() {
     return {
-      title: this.$page.portfolio.title,
+      title: this.$page.strapiPortfolio.title,
     };
   },
 };
@@ -98,17 +102,28 @@ export default {
 
 <page-query>
 query($id: ID!){
-  portfolio(id: $id){
+  strapiPortfolio(id: $id) {
     id
     title
-    content
-    coverImage
+    description
+    font
     platform
-    category
-    fonts
     tools
     slug
-    images
+    dribbble
+    category{
+      categoryName
+    }
+    created_at
+    cover {
+      id
+      url
+    }
+    images {
+      id
+      url
+      caption
+    }
   }
 }
 </page-query>

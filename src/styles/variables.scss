@@ -13,9 +13,11 @@ $primary-light: findLightColor($primary);
 $primary-dark: findDarkColor($primary);
 $primary-invert: findColorInvert($primary);
 $twitter: #4099ff;
-$twitter-invert: findColorInvert($twitter);
-$dribbble: #EA4C89;
+$dribbble: #ea4c89;
 $dribbble-invert: findColorInvert($dribbble);
+$facebook: #3b5998;
+$linkedin: #0077b5;
+$github: #333;
 
 $colors: mergeColorMaps(
   (
