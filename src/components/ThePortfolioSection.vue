@@ -3,25 +3,31 @@
     <div class="row">
       <div class="column">
         <div class="container">
-          <h1 class="title is-1">Portfolios</h1>
-          <p class="subtitle">
+          <h1 class="title is-2 has-text-centered-mobile">Portfolios</h1>
+          <p class="subtitle has-text-centered-mobile">
             Design Explorations, Projects, and Experiments.
           </p>
-          <div class="tile is-ancestor flex-wrapping">
+          <div class="tile is-ancestor is-flex-wrap-wrap">
             <div
               class="tile is-parent is-4"
-              v-for="edge in $static.allPortfolio.edges"
+              v-for="edge in $static.allStrapiPortfolio.edges"
               :key="edge.node.id"
             >
-              <g-link :to="edge.node.path">
+              <g-link :to="`/portfolio/${edge.node.slug}`">
                 <div class="card">
                   <div class="card-image">
                     <figure class="image">
-                      <img :src="edge.node.coverImage" :alt="edge.node.title" />
+                      <img
+                        :src="getStrapiMedia(edge.node.cover.url)"
+                        :alt="edge.node.title"
+                      />
                     </figure>
                   </div>
                   <div class="card-content">
                     <h1 class="title is-4">{{ edge.node.title }}</h1>
+                    <p class="subtitle is-size-6">
+                      {{ edge.node.description }}
+                    </p>
                   </div>
                 </div>
               </g-link>
@@ -38,6 +44,7 @@
             to="/portfolios"
             type="is-primary"
             size="is-small"
+            class="is-light"
             outlined
           >
             View All Portfolios
@@ -49,17 +56,29 @@
 </template>
 
 <script>
-export default {};
+import { getStrapiMedia } from "~/utils/medias";
+export default {
+  methods: {
+    getStrapiMedia,
+  },
+};
 </script>
 <static-query>
-query($page: Int){
-  allPortfolio(sortBy: "date", order: DESC, perPage: 6, page: $page) @paginate{
-    edges{
-      node{
+query{
+ allStrapiPortfolio {
+    edges {
+      node {
         id
-        path
         title
-        coverImage
+        description
+        slug
+        
+        updated_at
+        created_at
+        cover {
+          id
+          url
+        }
       }
     }
   }

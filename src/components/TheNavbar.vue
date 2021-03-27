@@ -24,7 +24,7 @@
         class="has-text-weight-semibold"
         >Portfolios</b-navbar-item
       >
-      <b-navbar-item to="#" tag="g-link" class="has-text-weight-semibold"
+      <b-navbar-item @click="scrollToContact" class="has-text-weight-semibold"
         >Contact</b-navbar-item
       >
     </template>
@@ -37,5 +37,15 @@ import IconInvert from "@/assets/Icon-invert.svg";
 export default {
   props: ["color-mode"],
   components: { Icon, IconInvert },
+  methods: {
+    scrollToContact() {
+      window.scrollTo({
+        top:
+          document.body.scrollHeight || document.documentElement.scrollHeight,
+        left: 0,
+        behavior: "smooth",
+      });
+    },
+  },
 };
 </script>

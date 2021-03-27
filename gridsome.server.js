@@ -5,12 +5,60 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
+const fs = require("fs");
+const http = require("http");
+const path = require("path");
+
+module.exports = function(api) {
   api.loadSource(({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-  })
+  });
 
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  })
-}
+  api.createPages(async ({ graphql, createPage }) => {
+    const { data } = await graphql(`
+      {
+        allStrapiPost {
+          edges {
+            node {
+              id
+              slug
+            }
+          }
+        }
+        allStrapiPortfolio {
+          edges {
+            node {
+              id
+              slug
+            }
+          }
+        }
+      }
+    `);
+
+    const posts = data.allStrapiPost.edges;
+    const portfolios = data.allStrapiPortfolio.edges;
+
+    posts.forEach(({ node }) => {
+      createPage({
+        path: `/post/${node.slug}`,
+        component: "./src/templates/Post.vue",
+        context: {
+          id: node.id,
+          slug: node.slug,
+        },
+      });
+    });
+
+    portfolios.forEach(({ node }) => {
+      createPage({
+        path: `/portfolio/${node.slug}`,
+        component: "./src/templates/Portfolio.vue",
+        context: {
+          id: node.id,
+          slug: node.slug,
+        },
+      });
+    });
+  });
+};

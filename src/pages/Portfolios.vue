@@ -1,59 +1,70 @@
 <template>
-  <Post>
-    <div class="row">
-      <div class="column">
-        <div class="container">
-          <h1 class="title is-1">Portfolio</h1>
-          <p class="subtitle">
-            Design Explorations, Projects, and Experiments.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="container">
-          <div class="tile is-ancestor flex-wrapping">
-            <div
-              class="tile is-parent is-6"
-              v-for="edge in $page.allPortfolio.edges"
-              :key="edge.node.id"
-            >
-              <g-link :to="edge.node.path">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image">
-                      <img :src="edge.node.coverImage" :alt="edge.node.title" />
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <h1 class="title is-4">{{ edge.node.title }}</h1>
-                    <p class="subtitle is-size-6">{{ edge.node.excerpt }}</p>
-                  </div>
-                </div>
-              </g-link>
+  <div>
+    <div class="upper-layer-bg">
+      <Navbar />
+      <Post>
+        <div class="row">
+          <div class="column">
+            <div class="container">
+              <h1 class="title is-1">Portfolio</h1>
+              <p class="subtitle">
+                Design Explorations, Projects, and Experiments.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- <div class="row">
-      <div class="column is-centered">
-        <div class="container has-text-centered">
-          <Pager
-            :info="$page.allPost.pageInfo"
-            class="pager"
-            linkClass="pagination-link"
-            :range="$page.allPost.perPage"
-          />
+        <div class="row">
+          <div class="columns">
+            <div class="column">
+              <div class="container">
+                <div
+                  class="row"
+                  v-for="edge in $page.allStrapiPortfolio.edges"
+                  :key="edge.node.id"
+                >
+                  <g-link :to="`/portfolio/${edge.node.slug}`">
+                    <div class="card">
+                      <div class="card-image">
+                        <figure class="image">
+                          <img
+                            :src="getStrapiMedia(edge.node.cover.url)"
+                            :alt="edge.node.title"
+                          />
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <h1 class="title is-4">{{ edge.node.title }}</h1>
+                        <p class="subtitle is-size-6">
+                          {{ edge.node.description }}
+                        </p>
+                      </div>
+                    </div>
+                  </g-link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div> -->
-  </Post>
+      </Post>
+    </div>
+    <div class="area">
+      <ul class="circles">
+        <li v-for="i in 20" :key="i"></li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
+import { getStrapiMedia } from "~/utils/medias";
+import Navbar from "@/components/TheNavbar.vue";
 export default {
+  components: {
+    Navbar,
+  },
+  methods: {
+    getStrapiMedia,
+  },
   metaInfo: {
     title: "Portfolios",
   },
@@ -61,20 +72,31 @@ export default {
 </script>
 
 <page-query>
-query($page: Int){
-  allPortfolio(sortBy: "date", order: DESC, perPage: 6, page: $page) @paginate{
-    edges{
-      node{
+query{
+ allStrapiPortfolio {
+    edges {
+      node {
         id
-        path
         title
-        coverImage
-        excerpt
+        description
+        slug
+        updated_at
+        created_at
+        cover {
+          id
+          url
+        }
       }
     }
   }
 }
 </page-query>
 
-<style>
+<style lang="scss" scoped>
+.card-image {
+  img {
+    max-height: 320px;
+    object-fit: cover;
+  }
+}
 </style>

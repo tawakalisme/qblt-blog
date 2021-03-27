@@ -1,50 +1,53 @@
 <template>
-  <Post
-    ><div class="row">
-      <div class="column">
-        <div class="container">
-          <h1 class="title is-1">Blog Posts</h1>
-          <p class="subtitle">Check Out What’s on My Mind.</p>
-          <div class="tile is-ancestor is-vertical">
-            <div
-              v-for="post in $page.allPost.edges"
-              :key="post.node.id"
-              class="tile is-parent"
-            >
-              <g-link :to="post.node.path">
-                <div class="card">
-                  <div class="card-content">
-                    <h1 class="title is-3 is-capitalized">
+  <div>
+    <Navbar />
+    <Post>
+      <div class="row">
+        <div class="column">
+          <div class="container">
+            <h1 class="title is-1">Blog Posts</h1>
+            <p class="subtitle">Check Out What’s on My Mind.</p>
+            <div class="tile is-ancestor is-flex-wrap-wrap is-vertical">
+              <div
+                class="tile is-parent"
+                v-for="post in $page.allStrapiPost.edges"
+                :key="post.node.id"
+              >
+                <g-link :to="`/post/${post.node.slug}`">
+                  <div class="tile is-child box">
+                    <h1 class="title is-4 is-capitalized">
                       {{ post.node.title }}
                     </h1>
-                    <p class="content">{{ post.node.excerpt }}</p>
-                  </div>
-                </div>
-              </g-link>
+                    <p class="content is-size-6">{{ post.node.excerpt }}</p>
+                  </div></g-link
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="column is-centered">
-        <div class="container has-text-centered">
-          <Pager
-            :info="$page.allPost.pageInfo"
-            class="pager"
-            linkClass="pagination-link"
-            :range="$page.allPost.perPage"
-          />
-        </div>
-      </div></div
-  ></Post>
+      <div class="row">
+        <div class="column is-centered">
+          <div class="container has-text-centered">
+            <Pager
+              :info="$page.allStrapiPost.pageInfo"
+              class="pager"
+              linkClass="pagination-link"
+              :range="$page.allStrapiPost.perPage"
+            />
+          </div>
+        </div></div
+    ></Post>
+  </div>
 </template>
 
 <script>
 import { Pager } from "gridsome";
+import Navbar from "@/components/TheNavbar.vue";
 export default {
   components: {
     Pager,
+    Navbar,
   },
   metaInfo: {
     title: "Blog Posts",
@@ -54,7 +57,7 @@ export default {
 
 <page-query>
 query($page: Int){
-  allPost(sortBy: "date", order: DESC, perPage: 5, page: $page) @paginate{
+  allStrapiPost(sortBy: "created_at", order: DESC, perPage: 10, page: $page){
     pageInfo{
       totalPages
       totalItems
@@ -65,8 +68,10 @@ query($page: Int){
       node{
         id
         title
+        article
         excerpt
-        path
+        slug
+        
       }
     }
   }
