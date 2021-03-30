@@ -6,7 +6,7 @@
         :style="{
           background:
             'linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(' +
-            getStrapiMedia($page.strapiPost.image.url) +
+            $page.strapiPost.image.url +
             ')',
           'background-attachment': 'fixed',
           'background-position': 'center',
@@ -32,16 +32,12 @@
 </template>
 
 <script>
-import { getStrapiMedia } from "~/utils/medias";
 import VueMarkdown from "vue-markdown";
 import Navbar from "@/components/TheNavbar.vue";
 export default {
   components: {
     VueMarkdown,
     Navbar,
-  },
-  methods: {
-    getStrapiMedia,
   },
   metaInfo() {
     return {
