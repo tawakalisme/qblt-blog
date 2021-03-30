@@ -27,7 +27,7 @@
                       <div class="card-image">
                         <figure class="image">
                           <img
-                            :src="getStrapiMedia(edge.node.cover.url)"
+                            :src="edge.node.cover.url"
                             :alt="edge.node.title"
                           />
                         </figure>
@@ -56,14 +56,10 @@
 </template>
 
 <script>
-import { getStrapiMedia } from "~/utils/medias";
 import Navbar from "@/components/TheNavbar.vue";
 export default {
   components: {
     Navbar,
-  },
-  methods: {
-    getStrapiMedia,
   },
   metaInfo: {
     title: "Portfolios",

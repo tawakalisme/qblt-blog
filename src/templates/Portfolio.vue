@@ -5,7 +5,7 @@
       :style="{
         background:
           'linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.9)), url(' +
-          getStrapiMedia($page.strapiPortfolio.cover.url) +
+          $page.strapiPortfolio.cover.url +
           ')',
         'background-attachment': 'fixed',
         'background-position': 'center',
@@ -67,8 +67,12 @@
           v-for="image in $page.strapiPortfolio.images"
         >
           <div class="container has-text-centered">
+<<<<<<< HEAD
+            <g-image :src="image.url" />
+=======
             <g-image :src="getStrapiMedia(image.url)" />
 
+>>>>>>> da00021a2df7e28965adc82a38bff52e1f44ae1c
           </div>
         </div>
       </div>
@@ -78,11 +82,7 @@
 
 <script>
 import Navbar from "@/components/TheNavbar.vue";
-import { getStrapiMedia } from "~/utils/medias";
 export default {
-  methods: {
-    getStrapiMedia,
-  },
   components: {
     Navbar,
   },

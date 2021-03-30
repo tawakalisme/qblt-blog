@@ -18,7 +18,7 @@
                   <div class="card-image">
                     <figure class="image">
                       <img
-                        :src="getStrapiMedia(edge.node.cover.url)"
+                        :src="edge.node.cover.url"
                         :alt="edge.node.title"
                       />
                     </figure>
@@ -56,11 +56,7 @@
 </template>
 
 <script>
-import { getStrapiMedia } from "~/utils/medias";
 export default {
-  methods: {
-    getStrapiMedia,
-  },
 };
 </script>
 <static-query>
