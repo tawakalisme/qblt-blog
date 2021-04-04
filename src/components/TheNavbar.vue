@@ -24,7 +24,10 @@
         class="has-text-weight-semibold"
         >Portfolios</b-navbar-item
       >
-      <b-navbar-item @click="scrollToContact" class="has-text-weight-semibold"
+      <b-navbar-item
+        v-if="isHomepage"
+        @click="scrollToContact"
+        class="has-text-weight-semibold"
         >Contact</b-navbar-item
       >
     </template>
@@ -35,7 +38,7 @@
 import Icon from "@/assets/Icon.svg";
 import IconInvert from "@/assets/Icon-invert.svg";
 export default {
-  props: ["color-mode"],
+  props: ["color-mode", "is-homepage"],
   components: { Icon, IconInvert },
   methods: {
     scrollToContact() {

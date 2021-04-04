@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="upper-layer-bg">
-      <Hero />
+      <Hero :homepage="true"/>
       <BlogSection />
       <PortfolioSection />
       <Footer />
     </div>
     <div class="area">
       <ul class="circles">
-        <li v-for="i in 20" :key="i"></li>
+        <li v-for="i in 15" :key="i"></li>
       </ul>
     </div>
   </div>

@@ -9,22 +9,20 @@
           </p>
           <div class="tile is-ancestor is-flex-wrap-wrap">
             <div
-              class="tile is-parent is-4"
+              class="tile is-parent is-4 "
               v-for="edge in $static.allStrapiPortfolio.edges"
               :key="edge.node.id"
             >
               <g-link :to="`/portfolio/${edge.node.slug}`">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image">
-                      <img
-                        :src="edge.node.cover.url"
-                        :alt="edge.node.title"
-                      />
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <h1 class="title is-4">{{ edge.node.title }}</h1>
+                <div class="tile is-child box p-0">
+                  <b-image
+                    :src="edge.node.cover.url"
+                    :alt="edge.node.title"
+                  />
+                  <div class="p-4">
+                    <h1 class="title is-capitalized">
+                      {{ edge.node.title }}
+                    </h1>
                     <p class="subtitle is-size-6">
                       {{ edge.node.description }}
                     </p>
@@ -55,13 +53,9 @@
   </section>
 </template>
 
-<script>
-export default {
-};
-</script>
 <static-query>
 query{
- allStrapiPortfolio {
+ allStrapiPortfolio(limit: 3) {
     edges {
       node {
         id
