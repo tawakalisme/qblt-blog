@@ -16,7 +16,7 @@
               <g-link :to="`/portfolio/${edge.node.slug}`">
                 <div class="tile is-child box p-0">
                   <b-image
-                    :src="`http://localhost:1337${edge.node.cover.url}`"
+                    :src="edge.node.cover.url"
                     :alt="edge.node.title"
                   />
                   <div class="p-4">

@@ -25,7 +25,7 @@
                   <g-link :to="`/portfolio/${edge.node.slug}`">
                     <div class="box px-0 pt-0">
                       <b-image
-                        :src="`http://localhost:1337${edge.node.cover.url}`"
+                        :src="edge.node.cover.url"
                         :alt="edge.node.title"
                         lazy
                         ratio="16by4"

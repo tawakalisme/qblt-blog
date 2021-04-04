@@ -5,8 +5,8 @@ module.exports = {
     {
       use: "@gridsome/source-strapi",
       options: {
-        // apiURL: `https://qblt-strapi.herokuapp.com`,
-        apiURL: `http://localhost:1337`,
+        apiURL: `https://qblt-strapi.herokuapp.com`,
+        // apiURL: `http://localhost:1337`,
         queryLimit: 100, // Defaults to 100
         contentTypes: [`post`, `portfolio`],
       },
