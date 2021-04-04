@@ -1,7 +1,7 @@
 <template>
   <section class="hero is-medium">
     <div class="hero-head">
-      <Navbar />
+      <Navbar :is-homepage="homepage"/>
     </div>
     <div class="hero-body">
       <div class="container has-text-centered-mobile">
@@ -28,6 +28,7 @@
 <script>
 import Navbar from "@/components/TheNavbar.vue";
 export default {
+  props: ["homepage"],
   components: {
     Navbar,
   },

@@ -18,22 +18,24 @@
             <div class="column">
               <div class="container">
                 <div
-                  class="row"
+                  class="row my-4"
                   v-for="edge in $page.allStrapiPortfolio.edges"
                   :key="edge.node.id"
                 >
                   <g-link :to="`/portfolio/${edge.node.slug}`">
-                    <div class="card">
-                      <div class="card-image">
-                        <figure class="image">
-                          <img
-                            :src="edge.node.cover.url"
-                            :alt="edge.node.title"
-                          />
-                        </figure>
-                      </div>
-                      <div class="card-content">
-                        <h1 class="title is-4">{{ edge.node.title }}</h1>
+                    <div class="box px-0 pt-0">
+                      <b-image
+                        :src="`http://localhost:1337${edge.node.cover.url}`"
+                        :alt="edge.node.title"
+                        lazy
+                        ratio="16by4"
+                        responsive
+                        class="border-rect"
+                      />
+                      <div class="mx-4 mt-4">
+                        <h1 class="title is-capitalized">
+                          {{ edge.node.title }}
+                        </h1>
                         <p class="subtitle is-size-6">
                           {{ edge.node.description }}
                         </p>
@@ -49,7 +51,7 @@
     </div>
     <div class="area">
       <ul class="circles">
-        <li v-for="i in 20" :key="i"></li>
+        <li v-for="i in 15" :key="i"></li>
       </ul>
     </div>
   </div>
@@ -87,12 +89,3 @@ query{
   }
 }
 </page-query>
-
-<style lang="scss" scoped>
-.card-image {
-  img {
-    max-height: 320px;
-    object-fit: cover;
-  }
-}
-</style>

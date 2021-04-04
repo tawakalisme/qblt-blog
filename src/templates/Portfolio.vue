@@ -43,7 +43,7 @@
       <nav class="level my-6">
         <div class="level-item has-text-centered">
           <div>
-            <p class="heading">Font Family</p>
+            <p class="heading">Typeface</p>
             <p class="title">{{ $page.strapiPortfolio.font }}</p>
           </div>
         </div>
@@ -63,7 +63,11 @@
       <div class="tile is-ancestor is-flex-wrap-wrap">
         <div
           :key="image.id"
-          class="tile is-6"
+          class="tile"
+          :class="{
+            'is-6': $page.strapiPortfolio.images.length % 2 === 0,
+            'is-4': $page.strapiPortfolio.images.length % 3 === 0,
+          }"
           v-for="image in $page.strapiPortfolio.images"
         >
           <div class="container has-text-centered">

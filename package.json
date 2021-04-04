@@ -1,6 +1,12 @@
 {
   "name": "gridsome-site",
   "private": true,
+  "version": "0.2.0",
+  "author": {
+    "name": "Muhamad Iqbal Tawakal",
+    "email": "tawakalisme@gmail.com",
+    "url": "https://iqbaltawakal.my.id"
+  },
   "scripts": {
     "develop": "gridsome develop",
     "explore": "gridsome explore",
