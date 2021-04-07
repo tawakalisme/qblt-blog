@@ -1,10 +1,12 @@
 <template>
   <div>
-    <slot name="header-image" />
+    <Navbar />
     <div class="row">
-      <div class="column">
-        <div class="container is-max-desktop">
-          <slot />
+      <div class="columns is-tablet">
+        <div class="column is-6 is-offset-3">
+          <div class="container is-max-widescreen px-4">
+            <slot />
+          </div>
         </div>
       </div>
     </div>

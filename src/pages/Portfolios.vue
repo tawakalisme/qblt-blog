@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="upper-layer-bg">
-      <Navbar />
       <Post>
         <div class="row">
           <div class="column">
@@ -18,20 +17,18 @@
             <div class="column">
               <div class="container">
                 <div
-                  class="row my-4"
+                  class="row mb-4"
                   v-for="edge in $page.allStrapiPortfolio.edges"
                   :key="edge.node.id"
                 >
                   <g-link :to="`/portfolio/${edge.node.slug}`">
                     <div class="box px-0 pt-0">
-                      <b-image
-                        :src="edge.node.cover.url"
-                        :alt="edge.node.title"
-                        lazy
-                        ratio="16by4"
-                        responsive
-                        class="border-rect"
-                      />
+                      <figure class="image">
+                        <img
+                          :src="edge.node.cover.url"
+                          :alt="edge.node.title"
+                        />
+                      </figure>
                       <div class="mx-4 mt-4">
                         <h1 class="title is-capitalized">
                           {{ edge.node.title }}
@@ -39,6 +36,9 @@
                         <p class="subtitle is-size-6">
                           {{ edge.node.description }}
                         </p>
+                    <span class="is-size-7">
+                      {{ edge.node.updated_at }}
+                    </span>
                       </div>
                     </div>
                   </g-link>
@@ -69,6 +69,12 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+img {
+  border-radius: 6px 6px 0 0;
+}
+</style>
+
 <page-query>
 query{
  allStrapiPortfolio {
@@ -78,8 +84,7 @@ query{
         title
         description
         slug
-        updated_at
-        created_at
+        updated_at(format: "dddd, D MMMM YYYY")
         cover {
           id
           url

@@ -4,7 +4,9 @@
       <div class="column">
         <div class="container">
           <h1 class="title is-2 has-text-centered-mobile">Blog Posts</h1>
-          <p class="subtitle has-text-centered-mobile">Check Out What’s on My Mind.</p>
+          <p class="subtitle has-text-centered-mobile">
+            Check Out What’s on My Mind.
+          </p>
           <div class="tile is-ancestor is-flex-wrap-wrap">
             <div
               class="tile is-4 is-parent"
@@ -13,10 +15,15 @@
             >
               <g-link :to="`/post/${post.node.slug}`" class="">
                 <div class="tile is-child box">
-                  <h1 class="title is-capitalized">
+                  <h1 class="title is-4 is-capitalized">
                     {{ post.node.title }}
                   </h1>
-                  <p class="subtitle is-size-6">{{ post.node.excerpt }}</p>
+                  <p class="subtitle is-size-6">
+                    {{ post.node.excerpt }}
+                  </p>
+                  <span class="is-size-7">
+                    {{ post.node.updated_at }}
+                  </span>
                 </div>
               </g-link>
             </div>
@@ -43,6 +50,16 @@
   </section>
 </template>
 
+<script>
+import VueMarkdown from "vue-markdown";
+export default {
+  components: {
+    VueMarkdown,
+  },
+};
+</script>
+
+
 <static-query>
 query{
   allStrapiPost(limit: 3){
@@ -53,6 +70,7 @@ query{
         article
         excerpt
         slug
+        updated_at(format: "dddd, D MMMM YYYY")
       }
     }
   }

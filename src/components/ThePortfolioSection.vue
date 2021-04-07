@@ -9,23 +9,25 @@
           </p>
           <div class="tile is-ancestor is-flex-wrap-wrap">
             <div
-              class="tile is-parent is-4 "
+              class="tile is-parent is-4"
               v-for="edge in $static.allStrapiPortfolio.edges"
               :key="edge.node.id"
             >
               <g-link :to="`/portfolio/${edge.node.slug}`">
-                <div class="tile is-child box p-0">
-                  <b-image
-                    :src="edge.node.cover.url"
-                    :alt="edge.node.title"
-                  />
-                  <div class="p-4">
-                    <h1 class="title is-capitalized">
+                <div class="box px-0 pt-0">
+                  <figure class="image">
+                    <img :src="edge.node.cover.url" :alt="edge.node.title" />
+                  </figure>
+                  <div class="mx-4 mt-4">
+                    <h1 class="title is-4 is-capitalized">
                       {{ edge.node.title }}
                     </h1>
                     <p class="subtitle is-size-6">
                       {{ edge.node.description }}
                     </p>
+                    <span class="is-size-7">
+                      {{ edge.node.updated_at }}
+                    </span>
                   </div>
                 </div>
               </g-link>
@@ -53,6 +55,12 @@
   </section>
 </template>
 
+<style lang="scss" scoped>
+img {
+  border-radius: 6px 6px 0 0;
+}
+</style>
+
 <static-query>
 query{
  allStrapiPortfolio(limit: 3) {
@@ -62,9 +70,7 @@ query{
         title
         description
         slug
-        
-        updated_at
-        created_at
+        updated_at(format: "dddd, D MMMM YYYY")
         cover {
           id
           url
