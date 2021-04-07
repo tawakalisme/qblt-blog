@@ -1,59 +1,49 @@
 <template>
   <div>
-    <div class="upper-layer-bg">
-      <Post>
-        <div class="row">
-          <div class="column">
-            <div class="container">
-              <h1 class="title is-1">Portfolio</h1>
-              <p class="subtitle">
-                Design Explorations, Projects, and Experiments.
-              </p>
-            </div>
+    <Post>
+      <div class="row">
+        <div class="column">
+          <div class="container">
+            <h1 class="title is-1">Portfolio</h1>
+            <p class="subtitle">
+              Design Explorations, Projects, and Experiments.
+            </p>
           </div>
         </div>
-        <div class="row">
-          <div class="columns">
-            <div class="column">
-              <div class="container">
-                <div
-                  class="row mb-4"
-                  v-for="edge in $page.allStrapiPortfolio.edges"
-                  :key="edge.node.id"
-                >
-                  <g-link :to="`/portfolio/${edge.node.slug}`">
-                    <div class="box px-0 pt-0">
-                      <figure class="image">
-                        <img
-                          :src="edge.node.cover.url"
-                          :alt="edge.node.title"
-                        />
-                      </figure>
-                      <div class="mx-4 mt-4">
-                        <h1 class="title is-capitalized">
-                          {{ edge.node.title }}
-                        </h1>
-                        <p class="subtitle is-size-6">
-                          {{ edge.node.description }}
-                        </p>
-                    <span class="is-size-7">
-                      {{ edge.node.updated_at }}
-                    </span>
-                      </div>
+      </div>
+      <div class="row">
+        <div class="columns">
+          <div class="column">
+            <div class="container">
+              <div
+                class="row mb-4"
+                v-for="edge in $page.allStrapiPortfolio.edges"
+                :key="edge.node.id"
+              >
+                <g-link :to="`/portfolio/${edge.node.slug}`">
+                  <div class="box px-0 pt-0">
+                    <figure class="image">
+                      <img :src="edge.node.cover.url" :alt="edge.node.title" />
+                    </figure>
+                    <div class="mx-4 mt-4">
+                      <h1 class="title is-capitalized">
+                        {{ edge.node.title }}
+                      </h1>
+                      <p class="subtitle is-size-6">
+                        {{ edge.node.description }}
+                      </p>
+                      <span class="is-size-7">
+                        {{ edge.node.updated_at }}
+                      </span>
                     </div>
-                  </g-link>
-                </div>
+                  </div>
+                </g-link>
               </div>
             </div>
           </div>
         </div>
-      </Post>
-    </div>
-    <div class="area">
-      <ul class="circles">
-        <li v-for="i in 15" :key="i"></li>
-      </ul>
-    </div>
+      </div>
+    </Post>
   </div>
 </template>
 

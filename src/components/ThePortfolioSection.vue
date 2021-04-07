@@ -16,7 +16,10 @@
               <g-link :to="`/portfolio/${edge.node.slug}`">
                 <div class="box px-0 pt-0">
                   <figure class="image">
-                    <img :src="edge.node.cover.url" :alt="edge.node.title" />
+                    <g-image
+                      :src="edge.node.cover.formats.small.url"
+                      :alt="edge.node.title"
+                    />
                   </figure>
                   <div class="mx-4 mt-4">
                     <h1 class="title is-4 is-capitalized">
@@ -72,8 +75,11 @@ query{
         slug
         updated_at(format: "dddd, D MMMM YYYY")
         cover {
-          id
-          url
+          formats{
+            small{
+              url
+            }
+          }
         }
       }
     }

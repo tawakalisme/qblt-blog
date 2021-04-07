@@ -9,27 +9,27 @@
       </p>
       <p class="content">
         <span class="icon is-large mx-3">
-          <a href="https://dribbble.com/tawakalisme">
+          <a href="https://dribbble.com/tawakalisme" aria-label="Dribbble">
             <i class="fab fa-2x fa-dribbble-square"></i
           ></a>
         </span>
         <span class="icon is-large mx-3">
-          <a href="https://facebook.com/tawakalisme">
+          <a href="https://facebook.com/tawakalisme" aria-label="Facebook">
             <i class="fab fa-2x fa-facebook-square"></i
           ></a>
         </span>
         <span class="icon is-large mx-3">
-          <a href="https://twitter.com/_qblt">
+          <a href="https://twitter.com/_qblt" aria-label="Twitter">
             <i class="fab fa-2x fa-twitter-square"></i
           ></a>
         </span>
         <span class="icon is-large mx-3">
-          <a href="https://github.com/tawakalisme">
+          <a href="https://github.com/tawakalisme" aria-label="Github">
             <i class="fab fa-2x fa-github-square"></i
           ></a>
         </span>
         <span class="icon is-large mx-3">
-          <a href="http://linkedin.com/in/miqbaltawakal">
+          <a href="http://linkedin.com/in/miqbaltawakal" aria-label="LinkedIn">
             <i class="fab fa-2x fa-linkedin"></i
           ></a>
         </span>

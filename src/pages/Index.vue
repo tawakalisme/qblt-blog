@@ -1,16 +1,9 @@
 <template>
   <div>
-    <div class="upper-layer-bg">
-      <Hero :homepage="true"/>
-      <BlogSection />
-      <PortfolioSection />
-      <Footer />
-    </div>
-    <div class="area">
-      <ul class="circles">
-        <li v-for="i in 15" :key="i"></li>
-      </ul>
-    </div>
+    <Hero :homepage="true" />
+    <BlogSection />
+    <PortfolioSection />
+    <Footer />
   </div>
 </template>
 
