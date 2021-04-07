@@ -85,13 +85,14 @@ img.max-height {
 }
 
 .box {
+  border-radius: 16px !important;
   transition: all 0.25s ease;
   .title {
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
     /* Fallback for non-webkit */
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -191,4 +192,3 @@ button {
     color: findDarkColor($linkedin);
   }
 }
-

@@ -14,23 +14,33 @@
               :key="edge.node.id"
             >
               <g-link :to="`/portfolio/${edge.node.slug}`">
-                <div class="box px-0 pt-0">
-                  <figure class="image">
+                <div
+                  class="box p-0"
+                  @mouseenter="hoverActive(edge.node.id)"
+                  @mouseleave="hoverActive(edge.node.id)"
+                >
+                  <div class="parent m-0">
                     <g-image
-                      :src="edge.node.cover.formats.small.url"
+                      :src="edge.node.cover.formats.large.url"
                       :alt="edge.node.title"
                     />
-                  </figure>
-                  <div class="mx-4 mt-4">
-                    <h1 class="title is-4 is-capitalized">
-                      {{ edge.node.title }}
-                    </h1>
-                    <p class="subtitle is-size-6">
-                      {{ edge.node.description }}
-                    </p>
-                    <span class="is-size-7">
-                      {{ edge.node.updated_at }}
-                    </span>
+                    <transition name="fade">
+                      <div
+                        class="child"
+                        v-if="hover && selectedId === edge.node.id"
+                      >
+                        <div class="title-wrapper">
+                          <h1
+                            class="title is-4 is-capitalized has-text-centered"
+                          >
+                            {{ edge.node.title }}
+                          </h1>
+                          <p class="subtitle is-size-6 has-text-centered">
+                            {{ edge.node.description }}
+                          </p>
+                        </div>
+                      </div>
+                    </transition>
                   </div>
                 </div>
               </g-link>
@@ -58,9 +68,62 @@
   </section>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      hover: false,
+      selectedId: 0,
+    };
+  },
+  methods: {
+    hoverActive(id) {
+      this.selectedId = id;
+      this.hover = !this.hover;
+      // this.selectedId = 0;
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
+.box {
+  h1,
+  p {
+    color: #fff;
+  }
+}
+.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(black, 0.5);
+  backdrop-filter: blur(4px);
+  .title-wrapper {
+    position: absolute;
+    border-radius: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 img {
-  border-radius: 6px 6px 0 0;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+  height: 40%;
+  max-height: 360px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.2s ease;
 }
 </style>
 
@@ -76,7 +139,7 @@ query{
         updated_at(format: "dddd, D MMMM YYYY")
         cover {
           formats{
-            small{
+            large{
               url
             }
           }
