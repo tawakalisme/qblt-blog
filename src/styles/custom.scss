@@ -1,3 +1,22 @@
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: $primary transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $primary;
+  border-radius: 3px;
+}
+
 h1 {
   @extend .title, .is-1;
 }
@@ -65,30 +84,35 @@ img.max-height {
   }
 }
 
-.card,
 .box {
   transition: all 0.25s ease;
-  .card-content {
-    .title {
-      display: block;
-      /* Fallback for non-webkit */
-      display: -webkit-box;
-      /* Fallback for non-webkit */
-      -webkit-line-clamp: 1;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  .title {
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    /* Fallback for non-webkit */
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  h2 {
+    color: $grey;
+  }
+  span {
+    color: $grey-light;
   }
 }
-.card:hover,
+
 .box:hover {
   box-shadow: 0 8px 16px rgba($primary, 0.5);
   background-color: $primary;
   color: $white;
   transform: translateY(-4px);
   h1,
-  p {
+  h2,
+  p,
+  span {
     color: $white;
   }
 }
@@ -208,12 +232,12 @@ button {
     width: 5px * $i;
     height: 5px * $i;
     animation-delay: 1s * random(12);
-    filter: blur(2px * (random()*2));
+    filter: blur(2px * (random() * 2));
   }
 }
 @keyframes animate-bg {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
     border: $dribbble solid 4px;
     opacity: 0.75;
   }
@@ -232,7 +256,7 @@ button {
   }
 
   100% {
-    transform: translateY(-100vh * 2) rotate(720deg);
+    transform: translateY(-100vh * 2);
     border: $primary solid 4px;
     opacity: 0;
   }
