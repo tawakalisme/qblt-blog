@@ -80,7 +80,6 @@ export default {
     hoverActive(id) {
       this.selectedId = id;
       this.hover = !this.hover;
-      // this.selectedId = 0;
     },
   },
 };
@@ -112,6 +111,8 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: fit-content;
+    padding: 0 1rem;
   }
 }
 img {
