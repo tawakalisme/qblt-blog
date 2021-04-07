@@ -6,7 +6,7 @@
     :class="{ 'is-primary': colorMode }"
   >
     <template #brand>
-      <b-navbar-item tag="g-link" to="/">
+      <b-navbar-item tag="g-link" to="/" aria-label="qblt">
         <Icon v-if="!colorMode" />
         <IconInvert v-else
       /></b-navbar-item>
