@@ -90,6 +90,9 @@ export default {
       title: this.$page.strapiPortfolio.title,
     };
   },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 

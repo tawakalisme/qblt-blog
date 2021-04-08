@@ -62,7 +62,6 @@ export default {
 };
 </script>
 
-
 <static-query>
 query{
   allStrapiPost(limit: 3){

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Post>
-      <div class="row">
+      <div class="row" data-aos="fade-right">
         <div class="column">
           <div class="container">
             <h1 class="title is-1">Blog Posts</h1>
@@ -9,7 +9,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" data-aos="fade-up">
         <div class="columns">
           <div class="column">
             <div class="container">

@@ -4,6 +4,7 @@
     transparent
     spaced
     :class="{ 'is-primary': colorMode }"
+    data-aos="fade-down"
   >
     <template #brand>
       <b-navbar-item tag="g-link" to="/" aria-label="qblt">

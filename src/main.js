@@ -10,6 +10,8 @@ import Buefy from "buefy";
 import "~/styles/prism.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import moment from "moment";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import "./styles/index.scss";
 
