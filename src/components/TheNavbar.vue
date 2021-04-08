@@ -16,7 +16,7 @@
         >Home</b-navbar-item
       >
       <b-navbar-item to="/posts" tag="g-link" class="has-text-weight-semibold"
-        >Blog</b-navbar-item
+        >Blog Posts</b-navbar-item
       >
       <b-navbar-item
         to="/portfolios"

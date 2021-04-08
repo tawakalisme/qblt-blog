@@ -1,18 +1,6 @@
 <template>
   <Portfolio>
-    <div
-      class="hero is-medium is-primary"
-      :style="{
-        background:
-          'linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.9)), url(' +
-          $page.strapiPortfolio.cover.url +
-          ')',
-        'background-attachment': 'fixed',
-        'background-position': 'center',
-        'background-repeat': 'no-repeat',
-        'background-size': 'cover',
-      }"
-    >
+    <div class="hero is-medium is-primary" :style="cover">
       <div class="hero-head">
         <Navbar :color-mode="true" />
       </div>
@@ -33,6 +21,7 @@
             icon-left="dribbble"
             icon-pack="fab"
             type="is-dribbble"
+            target="_blank"
           >
             View on Dribbble
           </b-button>
@@ -65,13 +54,20 @@
           :key="image.id"
           class="tile"
           :class="{
-            'is-6': $page.strapiPortfolio.images.length % 2 === 0,
-            'is-4': $page.strapiPortfolio.images.length % 3 === 0,
+            'is-6':
+              $page.strapiPortfolio.images.length % 2 === 0 &&
+              $page.strapiPortfolio.images.length % 3 !== 0,
+            'is-4':
+              $page.strapiPortfolio.images.length % 3 === 0 &&
+              $page.strapiPortfolio.images.length % 2 === 0,
+            'is-12': $page.strapiPortfolio.images.length === 1,
           }"
           v-for="image in $page.strapiPortfolio.images"
         >
           <div class="container has-text-centered">
-            <g-image :src="image.url" />
+            <g-link :href="image.url" target="_blank">
+              <g-image :src="image.url" class="on-hover" />
+            </g-link>
           </div>
         </div>
       </div>
@@ -90,6 +86,31 @@ export default {
       title: this.$page.strapiPortfolio.title,
     };
   },
+  methods: {
+    checkCover(cover, alt) {
+      if (cover === null) {
+        return `https://dummyimage.com/500x500/3b83f6/ffffff.png&text=${alt}`;
+      }
+      return cover.url;
+    },
+  },
+  computed: {
+    cover() {
+      return {
+        background:
+          "linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.9)), url(" +
+          this.checkCover(
+            this.$page.strapiPortfolio.cover,
+            this.$page.strapiPortfolio.title
+          ) +
+          ")",
+        "background-attachment": "fixed",
+        "background-position": "center",
+        "background-repeat": "no-repeat",
+        "background-size": "cover",
+      };
+    },
+  },
 };
 </script>
 
@@ -97,6 +118,23 @@ export default {
 .uppercase {
   text-transform: uppercase;
   font-weight: 300;
+}
+@for $i from 1 through 20 {
+  .tile:nth-child(#{$i}) {
+    overflow: hidden;
+    .on-hover {
+      transition: all 0.2s;
+      overflow: hidden;
+    }
+    .on-hover:hover {
+      $angle: 1deg;
+      @if $i % 2 != 0 {
+        transform: scale(1.1) rotateZ(random(2) * $angle);
+      } @else {
+        transform: scale(1.1) rotateZ(random(2) * -$angle);
+      }
+    }
+  }
 }
 </style>
 
