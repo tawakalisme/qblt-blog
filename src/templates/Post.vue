@@ -1,15 +1,11 @@
 <template>
   <Post>
-    <div class="hero is-medium">
-      <div class="hero-body">
-        <h1 class="title has-text-centered is-1 is-size-2-mobile">
-          {{ $page.strapiPost.title }}
-        </h1>
-        <p class="subtitle is-size-7 has-text-centered has-text-grey-light">
-          Posted on {{ getUpdateTime }}
-        </p>
-      </div>
-    </div>
+    <h1 class="title has-text-centered is-1 is-size-2-mobile">
+      {{ $page.strapiPost.title }}
+    </h1>
+    <p class="subtitle is-size-7 has-text-centered has-text-grey-light">
+      Posted on {{ getUpdateTime }}
+    </p>
     <h2 class="title">{{ $page.strapiPost.excerpt }}</h2>
     <vue-markdown :source="$page.strapiPost.article" class="content mt-2" />
   </Post>

@@ -13,11 +13,7 @@
               v-for="post in $static.allStrapiPost.edges"
               :key="post.node.id"
             >
-              <g-link
-                :to="`/post/${post.node.slug}`"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
+              <g-link :to="`/post/${post.node.slug}`" class="">
                 <div class="tile is-child box">
                   <h1 class="title is-4 is-capitalized">
                     {{ post.node.title }}
@@ -69,7 +65,7 @@ export default {
 
 <static-query>
 query{
-  allStrapiPost(limit: 6){
+  allStrapiPost(limit: 3){
     edges{
       node{
         id
