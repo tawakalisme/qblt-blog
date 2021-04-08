@@ -1,7 +1,7 @@
 <template>
   <div>
     <Post>
-      <div class="row" data-aos="fade-down">
+      <div class="row">
         <div class="column">
           <div class="container">
             <h1 class="title is-1">Portfolio</h1>
@@ -21,12 +21,9 @@
                 :key="edge.node.id"
               >
                 <g-link :to="`/portfolio/${edge.node.slug}`">
-                  <div class="box px-0 pt-0" data-aos="fade-up" data-aos-delay="500">
+                  <div class="box px-0 pt-0">
                     <figure class="image">
-                      <img
-                        :src="checkCover(edge.node.cover, edge.node.title)"
-                        :alt="edge.node.title"
-                      />
+                      <img :src="edge.node.cover.url" :alt="edge.node.title" />
                     </figure>
                     <div class="mx-4 mt-4">
                       <h1 class="title is-capitalized">
@@ -67,14 +64,15 @@ export default {
       return url.formats.medium.url;
     },
   },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 img {
   border-radius: 6px 6px 0 0;
-  max-height: 320px;
-  object-fit: cover;
 }
 </style>
 
@@ -89,11 +87,8 @@ query{
         slug
         updated_at(format: "dddd, D MMMM YYYY")
         cover {
-          formats{
-            medium{
-              url
-            }
-          }
+          id
+          url
         }
       }
     }

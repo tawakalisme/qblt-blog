@@ -1,8 +1,8 @@
 <template>
   <div>
     <Hero :homepage="true" />
-    <BlogSection data-aos="fade-up" data-aos-delay="200" />
-    <PortfolioSection data-aos="fade-up" />
+    <BlogSection />
+    <PortfolioSection />
     <Footer />
   </div>
 </template>
@@ -21,6 +21,9 @@ export default {
   },
   metaInfo: {
     title: "Hello, world!",
+  },
+  mounted() {
+    this.$aos.init();
   },
 };
 </script>

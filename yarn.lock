@@ -10014,11 +10014,6 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-aos@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/vue-aos/-/vue-aos-2.1.0.tgz#220d0ad339a57225294688a36ae35851a7360a72"
-  integrity sha512-Lh/aiEHePrf1LX2nCKTfUGW9WyORkolAhMkWRHj3rk1evdQzkQr8ix6UYn/8/r8oQqFaEDC2UiPCMHFqK76rqA==
-
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz"
