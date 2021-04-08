@@ -68,6 +68,9 @@ export default {
   metaInfo: {
     title: "Blog Posts",
   },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 

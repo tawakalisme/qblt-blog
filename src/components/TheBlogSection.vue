@@ -60,6 +60,9 @@ export default {
   components: {
     VueMarkdown,
   },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 

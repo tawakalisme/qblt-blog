@@ -22,6 +22,9 @@ export default {
   metaInfo: {
     title: "Hello, world!",
   },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 

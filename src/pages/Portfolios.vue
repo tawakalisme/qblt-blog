@@ -67,6 +67,9 @@ export default {
       return url.formats.medium.url;
     },
   },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 
