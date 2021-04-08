@@ -1,7 +1,7 @@
 <template>
   <div>
     <Post>
-      <div class="row" data-aos="fade-down">
+      <div class="row">
         <div class="column">
           <div class="container">
             <h1 class="title is-1">Blog Posts</h1>
@@ -20,11 +20,7 @@
                   :key="post.node.id"
                 >
                   <g-link :to="`/post/${post.node.slug}`">
-                    <div
-                      class="tile is-child box"
-                      data-aos="fade-up"
-                      data-aos-delay="500"
-                    >
+                    <div class="tile is-child box">
                       <h1 class="title is-4 is-capitalized">
                         {{ post.node.title }}
                       </h1>

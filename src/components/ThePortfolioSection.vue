@@ -21,7 +21,7 @@
                 >
                   <div class="parent m-0">
                     <g-image
-                      :src="checkCover(edge.node.cover, edge.node.title)"
+                      :src="edge.node.cover.formats.large.url"
                       :alt="edge.node.title"
                     />
                     <transition name="fade">
@@ -81,12 +81,6 @@ export default {
       this.selectedId = id;
       this.hover = !this.hover;
     },
-    checkCover(url, alt) {
-      if (url === null) {
-        return `https://dummyimage.com/500x500//ffffff/3b83f6.png&text=${alt}`;
-      }
-      return url.formats.large.url;
-    },
   },
 };
 </script>
@@ -97,11 +91,7 @@ export default {
   p {
     color: #fff;
   }
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
-
 .parent {
   position: relative;
 }
@@ -129,12 +119,8 @@ img {
   display: block;
   object-fit: cover;
   border-radius: 16px;
-  // height: 40%;
-  width: fit-content;
-  height: fit-content;
-  max-height: 320px;
-  // min-width: 320px;
-  overflow: hidden;
+  height: 40%;
+  max-height: 360px;
 }
 .fade-enter-active,
 .fade-leave-active {
