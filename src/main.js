@@ -21,15 +21,13 @@ export default function(Vue, { router, head, isClient }) {
   Vue.component("Navbar", Navbar);
 
   Vue.prototype.$moment = moment;
+  Vue.prototype.$aos = AOS;
 
   head.link.push({
     rel: "stylesheet",
     href: "https://use.fontawesome.com/releases/v5.2.0/css/all.css",
   });
 
-  if (process.isClient) {
-    AOS.init();
-  }
   Vue.use(Buefy, {
     defaultIconPack: "far", // Font Awesome Regular
   });

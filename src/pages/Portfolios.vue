@@ -56,6 +56,17 @@ export default {
   metaInfo: {
     title: "Portfolios",
   },
+  methods: {
+    checkCover(url, alt) {
+      if (url === null) {
+        return `https://dummyimage.com/750/ffffff/3b83f6.png&text=${alt}`;
+      }
+      return url.formats.medium.url;
+    },
+  },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 

@@ -32,6 +32,9 @@ export default {
   components: {
     Navbar,
   },
+  mounted() {
+    this.$aos.init();
+  },
 };
 </script>
 
