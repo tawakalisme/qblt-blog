@@ -10,6 +10,8 @@ import Buefy from "buefy";
 import "~/styles/prism.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import moment from "moment";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import "./styles/index.scss";
 
@@ -26,6 +28,8 @@ export default function(Vue, { router, head, isClient }) {
     rel: "stylesheet",
     href: "https://use.fontawesome.com/releases/v5.2.0/css/all.css",
   });
+
+  AOS.init();
 
   Vue.use(Buefy, {
     defaultIconPack: "far", // Font Awesome Regular

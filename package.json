@@ -1,7 +1,7 @@
 {
   "name": "gridsome-site",
   "private": true,
-  "version": "0.3.2",
+  "version": "1.0.0",
   "author": {
     "name": "Muhamad Iqbal Tawakal",
     "email": "tawakalisme@gmail.com",
@@ -17,10 +17,12 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/source-strapi": "^0.2.0",
     "@gridsome/transformer-remark": "^0.6.4",
+    "aos": "^3.0.0-beta.6",
     "buefy": "^0.9.4",
     "gridsome": "^0.7.0",
     "gridsome-source-graphql": "^1.0.2",
     "moment": "^2.29.1",
+    "vue-aos": "^2.1.0",
     "vue-markdown": "^2.2.4"
   },
   "devDependencies": {

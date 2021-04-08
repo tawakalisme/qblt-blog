@@ -1,8 +1,8 @@
 <template>
   <div>
     <Hero :homepage="true" />
-    <BlogSection />
-    <PortfolioSection />
+    <BlogSection data-aos="fade-up" data-aos-delay="200" />
+    <PortfolioSection data-aos="fade-up" />
     <Footer />
   </div>
 </template>
