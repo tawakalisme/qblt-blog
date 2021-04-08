@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Hero :homepage="true" />
-    <BlogSection />
-    <PortfolioSection />
-    <Footer />
+    <Hero :homepage="true"/>
+    <BlogSection data-aos="fade-up" />
+    <PortfolioSection data-aos="fade-up" />
+    <Footer data-aos="fade-up" />
   </div>
 </template>
 
@@ -22,6 +22,9 @@ export default {
   metaInfo: {
     title: "Hello, world!",
   },
+  mounted() {
+    this.$aos.init();
+  }
 };
 </script>
 
