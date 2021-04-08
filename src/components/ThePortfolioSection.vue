@@ -130,7 +130,7 @@ img {
 
 <static-query>
 query{
- allStrapiPortfolio(limit: 3) {
+ allStrapiPortfolio(limit: 6) {
     edges {
       node {
         id

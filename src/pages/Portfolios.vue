@@ -73,6 +73,8 @@ export default {
 <style lang="scss" scoped>
 img {
   border-radius: 6px 6px 0 0;
+  max-height: 320px;
+  object-fit: cover;
 }
 </style>
 
