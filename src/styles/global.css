@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    transition: 0.1s all ease-in-out;
+  }
+  a:hover {
+    font-weight: 800;
+  }
+}
+
+@layer utilities {
+  .solid-box-shadow-4 {
+    box-shadow: 4px 4px #000;
+    transition: 0.1s all ease-in-out;
+    transform: translate(0, 0);
+  }
+  .solid-box-shadow-4:hover {
+    box-shadow: 0px 0px #000;
+    transform: translate(4px, 4px);
+  }
+}
